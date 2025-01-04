@@ -7,7 +7,6 @@ url = "https://www.del-2.org/tabelle/"
 response = requests.get(url)
 
 soup = BeautifulSoup(response.text, "html.parser")
-print(soup)
 
 table = soup.find("table", {"class": "table table-sm table-hover table-striped"})
 

@@ -34,6 +34,12 @@ for report in reports:
 
     # Save to CSV
     date_of_request = pd.Timestamp.now().strftime("%Y-%m-%d")
-    filename = f"raw_spielerstatistiken_{report}_{date_of_request}.csv"
-    p = r"C:/Users/BenedictAltgassenDat/OneDrive - DatenPioniere/Data Repositories/hockey-monitoring/hockey-monitoring/data/raw/"
+
+    if report == "":
+        filename = f"raw_spielerstatistiken_{date_of_request}.csv"
+        p = r"C:/Users/BenedictAltgassenDat/OneDrive - DatenPioniere/Data Repositories/hockey-monitoring/hockey-monitoring/data/raw/spielerstatistiken/uebersicht/"
+    else:
+        filename = f"raw_spielerstatistiken_{report}_{date_of_request}.csv"
+        p = rf"C:/Users/BenedictAltgassenDat/OneDrive - DatenPioniere/Data Repositories/hockey-monitoring/hockey-monitoring/data/raw/spielerstatistiken/{report}/"
+
     df.to_csv(p + filename, index=False)
